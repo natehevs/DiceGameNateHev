@@ -47,7 +47,7 @@
 			return playerHealth;
 	}
 
-	function secondObstacle(userName, health){
+	function secondObstacle(userName, playerHealth){
 		alert("This is your second obstacle! You come to a sheer cliff face with a vine wall going up it! Roll a  4 side die to determine your fate!");
 		let roll2 = randomWholeNum(4);
 			if (roll2 == 1) {
@@ -73,7 +73,7 @@
 			return playerHealth;
 	}
 
-	function thirdObstacle(userName, health){
+	function thirdObstacle(userName, playerHealth){
 		alert("You come up to your third obastacle. You see a vine hanging over a raging river, and you must roll a 5 side die to determine the fate of your swing across!");
 		let roll3 = randomWholeNum(5);
 			if (roll3 == 1) {
@@ -103,7 +103,7 @@
 			return playerHealth;
 	}
 
-	function fourthObstacle(userName, health){
+	function fourthObstacle(userName, playerHealth){
 		alert("WOW! You have made it to the fourth obstacle which is a HUGE gorilla! Roll a 6 side die to determine your fate!");
 		let roll4 = randomWholeNum(6);
 			if (roll4 == 1) {
@@ -138,7 +138,7 @@
 			return playerHealth;
 	}
 
-	function fifthObstacle(userName, health){
+	function fifthObstacle(userName, playerHealth){
 		alert("You approach the fifth obstacle which seems to be a booby trapped pathway! Roll a 7 sided die to determine your fate!");
 		let roll5 = randomWholeNum(7);
 			if (roll5 == 1) {
@@ -178,7 +178,7 @@
 			return playerHealth;
 	}
 
-	function sixthObstacle(userName, health){
+	function sixthObstacle(userName, playerHealth){
 		alert("WOAH! You have made it to the final obstacle!!! Good Luck it is the hardest one yet it's a DRAGON!!!");
 		let roll6 = randomWholeNum(8);
 			if (roll6 == 1) {
