@@ -4,13 +4,21 @@
 	//create a way to keep track of HP
 
 	function runGame(){
+		let playerHealth = 100;
+		if (playerHealth <= 0){
+			alert("You have died!");
+			return runGame();
+		}
+		else if (playerHealth > 100){
+			playerHealth = 100;
+		}
 		let userName = getUserName();
-		firstObstacle(userName);
-		secondObstacle();
-		thirdObstacle();
-		fourthObstacle();
-		fifthObstacle();
-		sixthObstacle();
+		playerHealth = firstObstacle(userName, playerHealth);
+		playerHealth = secondObstacle(playerHealth);
+		playerHealth = thirdObstacle(playerHealth);
+		playerHealth = fourthObstacle(playerHealth);
+		playerHealth = fifthObstacle(playerHealth);
+		playerHealth = sixthObstacle(playerHealth);
 	}
 
 	function getUserName(){
@@ -19,7 +27,7 @@
 		return userName;
 	}
 
-	function firstObstacle(userName, numberOfSides){
+	function firstObstacle(userName, playerHealth){
 		alert("Hello " + userName + " welcome to the Dark Forest. Your objective is to get through all the obstacles without losing all your health! You will start with 100 HP. Good Luck!");
 		alert("This is your first obstacle! A log lays over a valley, you must try and cross it! Roll a  3 side die to determine your fate!");
 		let roll1 = randomWholeNum(3);
@@ -29,16 +37,17 @@
 			}
 			else if(roll1 == 2) {
 				alert("You begin to run across the log but you trip taking 10 HP. You still crossed though!");
+				playerHealth -= 10;
 				console.log(roll1);
 			}
 			else if(roll1 == 3) {
 				alert("You tried to cross the log but you are very uncordinated and fell to your DEATH!!!");
 				return runGame();
 			}
-
+			return playerHealth;
 	}
 
-	function secondObstacle(userName, numberOfSides){
+	function secondObstacle(userName, health){
 		alert("This is your second obstacle! You come to a sheer cliff face with a vine wall going up it! Roll a  4 side die to determine your fate!");
 		let roll2 = randomWholeNum(4);
 			if (roll2 == 1) {
@@ -47,11 +56,13 @@
 			}
 			else if(roll2 == 2) {
 				alert("You start climbing the vine wall when a rock dislodges above you and strikes you in the head! You manage to hang on and make it to the top but you lose 20 HP!");
+				playerHealth -= 20;
 				console.log(roll2);
 			}
 			else if(roll2 == 3) {
 				alert("You slip and fall to the ground, luckily you survived! You lose 50 HP and have to redo the obstacle!");
 				console.log(roll2);
+				playerHealth -= 50;
 				return secondObstacle();
 			}
 			else if(roll2 == 4) {
@@ -59,9 +70,10 @@
 				console.log(roll2);
 				return runGame();
 			}
+			return playerHealth;
 	}
 
-	function thirdObstacle(userName, numberOfSides){
+	function thirdObstacle(userName, health){
 		alert("You come up to your third obastacle. You see a vine hanging over a raging river, and you must roll a 5 side die to determine the fate of your swing across!");
 		let roll3 = randomWholeNum(5);
 			if (roll3 == 1) {
@@ -70,6 +82,7 @@
 			}
 			else if(roll3 == 2) {
 				alert("You begin your swing across and all of the sudden a Mythical Healing Fish jumps and touches you mid air! You safely cross the river and gain 20 HP!");
+				playerHealth += 20;
 				console.log(roll3);
 			}
 			else if(roll3 == 3) {
@@ -79,6 +92,7 @@
 			}
 			else if(roll3 == 4) {
 				alert("During your swing the vine breaks and hit the ground hard on the opposite shore! You lose 20 HP but you made it across!");
+				playerHealth -= 20;
 				console.log(roll3);
 			}
 			else if(roll3 == 5) {
@@ -86,9 +100,10 @@
 				console.log(roll3);
 				return runGame();
 			}
+			return playerHealth;
 	}
 
-	function fourthObstacle(userName, numberOfSides){
+	function fourthObstacle(userName, health){
 		alert("WOW! You have made it to the fourth obstacle which is a HUGE gorilla! Roll a 6 side die to determine your fate!");
 		let roll4 = randomWholeNum(6);
 			if (roll4 == 1) {
@@ -102,14 +117,17 @@
 			}
 			else if(roll4 == 3) {
 				alert("The gorilla attacks you but you play dead and it stops so you can pass. You lose 10 HP.");
+				playerHealth -= 10;
 				console.log(roll4);
 			}
 			else if(roll4 == 4) {
 				alert("The gorilla is friendly and hands you a banana which you eat and heal 10 HP. You walk to next obstacle.");
+				playerHealth += 10;
 				console.log(roll4);
 			}
 			else if(roll4 == 5) {
 				alert("The gorilla is hostile and you have to fight it! After a long and difficult battle you manage to beat the gorilla and escape the obstacle, but you lose 30 HP.");
+				playerHealth -= 30;
 				console.log(roll4);
 			}
 			else if(roll4 == 6) {
@@ -117,9 +135,10 @@
 				console.log(roll4);
 				return runGame();
 			}
+			return playerHealth;
 	}
 
-	function fifthObstacle(userName, numberOfSides){
+	function fifthObstacle(userName, health){
 		alert("You approach the fifth obstacle which seems to be a booby trapped pathway! Roll a 7 sided die to determine your fate!");
 		let roll5 = randomWholeNum(7);
 			if (roll5 == 1) {
@@ -128,10 +147,12 @@
 			}
 			else if(roll5 == 2) {
 				alert("You nearly make it through the pathway when all of the sudden you set off a booby trap and an arrow gets shot into your leg. You limp to the next obstacle but lose 40 HP!");
+				playerHealth -= 40;
 				console.log(roll5);
 			}
 			else if(roll5 == 3) {
 				alert("You start sneaking through the bushes instead of walking the pathway. You find a secret HEALING POTION in a bush and it heals you to FULL HP! And you make it to next obstacle.");
+				playerHealth += 100;
 				console.log(roll5);
 			}
 			else if(roll5 == 4) {
@@ -154,9 +175,10 @@
 				console.log(roll5);
 				return runGame();
 			}
+			return playerHealth;
 	}
 
-	function sixthObstacle(userName, numberOfSides){
+	function sixthObstacle(userName, health){
 		alert("WOAH! You have made it to the final obstacle!!! Good Luck it is the hardest one yet it's a DRAGON!!!");
 		let roll6 = randomWholeNum(8);
 			if (roll6 == 1) {
@@ -170,10 +192,12 @@
 			else if(roll6 == 3) {
 				alert("You try and fight the dragon but he tail whips you and you lose 10 HP and he sends you back to the beginning of this obstacle.");
 				console.log(roll6);
+				playerHealth -= 10;
 				return sixthObstacle();
 			}
 			else if(roll6 == 4) {
 				alert("The dragon attacks and bites you, but he realizes humans taste bad. You lose 30 HP but escape.");
+				playerHealth -= 30;
 				console.log(roll6);
 			}
 			else if(roll6 == 5) {
@@ -187,6 +211,7 @@
 			}
 			else if(roll6 == 7) {
 				alert("You and the dragon have a massive battle! Somehow you manage to find a sword nearby and lunge it into the dragons heart! This battle didn't go unharmed though! You lost 70 HP but escaped!");
+				playerHealth -= 70;
 				console.log(roll6);
 			}
 			else if(roll6 == 8) {
@@ -194,6 +219,7 @@
 				console.log(roll6);
 				return runGame();
 			}
+			return playerHealth;
 	}
 
 function randomWholeNum(numberOfSides) {
