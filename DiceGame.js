@@ -1,7 +1,4 @@
-//create a dice game
-	//create roll die function
-	//create functions for each obstacle
-	//create a way to keep track of HP
+
 
 	function runGame(){
 		let playerHealth = 100;
@@ -29,7 +26,7 @@
 
 	function firstObstacle(userName, playerHealth){
 		alert("Hello " + userName + " welcome to the Dark Forest. Your objective is to get through all the obstacles without losing all your health! You will start with 100 HP. Good Luck!");
-		alert("This is your first obstacle! A log lays over a valley, you must try and cross it! Roll a  3 side die to determine your fate!");
+		alert("This is your first obstacle! A log lays over a valley, you must try and cross it! Roll a  3 side die to determine your fate! Your HP is " + playerHealth);
 		let roll1 = randomWholeNum(3);
 			if (roll1 == 1) {
 				alert("WOW! You safely cross the log with no problem!");
@@ -48,7 +45,7 @@
 	}
 
 	function secondObstacle(userName, playerHealth){
-		alert("This is your second obstacle! You come to a sheer cliff face with a vine wall going up it! Roll a  4 side die to determine your fate!");
+		alert("This is your second obstacle! You come to a sheer cliff face with a vine wall going up it! Roll a  4 side die to determine your fate! HP = " + playerHealth);
 		let roll2 = randomWholeNum(4);
 			if (roll2 == 1) {
 				alert("WOW! You safely climb the wall with no problem!");
@@ -63,7 +60,7 @@
 				alert("You slip and fall to the ground, luckily you survived! You lose 50 HP and have to redo the obstacle!");
 				console.log(roll2);
 				playerHealth -= 50;
-				return secondObstacle();
+				return secondObstacle(playerHealth);
 			}
 			else if(roll2 == 4) {
 				alert("You are not built for climbing and slip and fall to your DEATH!!!");
@@ -74,7 +71,7 @@
 	}
 
 	function thirdObstacle(userName, playerHealth){
-		alert("You come up to your third obastacle. You see a vine hanging over a raging river, and you must roll a 5 side die to determine the fate of your swing across!");
+		alert("You come up to your third obastacle. You see a vine hanging over a raging river, and you must roll a 5 side die to determine the fate of your swing across! HP = " + playerHealth);
 		let roll3 = randomWholeNum(5);
 			if (roll3 == 1) {
 				alert("WOW you are insane! You safely crossed the river without any problem!");
@@ -104,7 +101,7 @@
 	}
 
 	function fourthObstacle(userName, playerHealth){
-		alert("WOW! You have made it to the fourth obstacle which is a HUGE gorilla! Roll a 6 side die to determine your fate!");
+		alert("WOW! You have made it to the fourth obstacle which is a HUGE gorilla! Roll a 6 side die to determine your fate! HP = " + playerHealth);
 		let roll4 = randomWholeNum(6);
 			if (roll4 == 1) {
 				alert("You are extremely sneaky and go past the gorilla easily!");
@@ -139,7 +136,7 @@
 	}
 
 	function fifthObstacle(userName, playerHealth){
-		alert("You approach the fifth obstacle which seems to be a booby trapped pathway! Roll a 7 sided die to determine your fate!");
+		alert("You approach the fifth obstacle which seems to be a booby trapped pathway! Roll a 7 sided die to determine your fate! HP = " + playerHealth);
 		let roll5 = randomWholeNum(7);
 			if (roll5 == 1) {
 				alert("You begin to walk, but nothing happens. You safely make it through no problem!");
@@ -158,7 +155,7 @@
 			else if(roll5 == 4) {
 				alert("You begin your walk, and you accidentally step on a trapdoor! You fall into a slide that drops you off at the beginning of the Dark Forest! You must continue from the first obstacle.");
 				console.log(roll5);
-				return firstObstacle();
+				return firstObstacle(playerHealth);
 			}
 			else if(roll5 == 5) {
 				alert("You begin your walk, and you accidentally step on a trapdoor! You fall into a slide that drops you off at the END of the Drak Forest! You made it out!");
@@ -168,7 +165,7 @@
 			else if(roll5 == 6) {
 				alert("You start walking down the pathway and all of the sudden a HUGE boulder starts rolling toward you! It forces you back to the beginning of the obstacle!");
 				console.log(roll5);
-				return fifthObstacle();
+				return fifthObstacle(playerHealth);
 			}
 			else if(roll5 == 7) {
 				alert("Luck is not on your side. You step on a pressure plate and an arrow hits you in the head killing you!!!");
@@ -179,7 +176,7 @@
 	}
 
 	function sixthObstacle(userName, playerHealth){
-		alert("WOAH! You have made it to the final obstacle!!! Good Luck it is the hardest one yet it's a DRAGON!!!");
+		alert("WOAH! You have made it to the final obstacle!!! Good Luck it is the hardest one yet it's a DRAGON!!! HP = " + playerHealth);
 		let roll6 = randomWholeNum(8);
 			if (roll6 == 1) {
 				alert("I swear you are the luckiest person ever!!! You escape untouched after dodging all attacks! YOU WIN!");
@@ -193,7 +190,7 @@
 				alert("You try and fight the dragon but he tail whips you and you lose 10 HP and he sends you back to the beginning of this obstacle.");
 				console.log(roll6);
 				playerHealth -= 10;
-				return sixthObstacle();
+				return sixthObstacle(playerHealth);
 			}
 			else if(roll6 == 4) {
 				alert("The dragon attacks and bites you, but he realizes humans taste bad. You lose 30 HP but escape.");
@@ -203,7 +200,7 @@
 			else if(roll6 == 5) {
 				alert("The massive dragon flaps its giant wings and sends you flying back to the beginning of the forest!");
 				console.log(roll6);
-				return firstObstacle();
+				return firstObstacle(playerHealth);
 			}
 			else if(roll6 == 6) {
 				alert("The lonely dragon is just looking for a friend. You become his friend and decide to stay in the Dark Forest to rule over it with the help of the dragon.");
