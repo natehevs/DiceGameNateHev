@@ -10,6 +10,9 @@
 			playerHealth = 100;
 		}
 		let userName = getUserName();
+		if(userName === "end"){
+			return;
+		}
 		playerHealth = firstObstacle(userName, playerHealth);
 		playerHealth = secondObstacle(playerHealth);
 		playerHealth = thirdObstacle(playerHealth);
@@ -44,7 +47,7 @@
 			return playerHealth;
 	}
 
-	function secondObstacle(userName, playerHealth){
+	function secondObstacle(playerHealth){
 		alert("This is your second obstacle! You come to a sheer cliff face with a vine wall going up it! Roll a  4 side die to determine your fate! HP = " + playerHealth);
 		let roll2 = randomWholeNum(4);
 			if (roll2 == 1) {
@@ -70,7 +73,7 @@
 			return playerHealth;
 	}
 
-	function thirdObstacle(userName, playerHealth){
+	function thirdObstacle(playerHealth){
 		alert("You come up to your third obastacle. You see a vine hanging over a raging river, and you must roll a 5 side die to determine the fate of your swing across! HP = " + playerHealth);
 		let roll3 = randomWholeNum(5);
 			if (roll3 == 1) {
@@ -100,7 +103,7 @@
 			return playerHealth;
 	}
 
-	function fourthObstacle(userName, playerHealth){
+	function fourthObstacle(playerHealth){
 		alert("WOW! You have made it to the fourth obstacle which is a HUGE gorilla! Roll a 6 side die to determine your fate! HP = " + playerHealth);
 		let roll4 = randomWholeNum(6);
 			if (roll4 == 1) {
@@ -135,7 +138,7 @@
 			return playerHealth;
 	}
 
-	function fifthObstacle(userName, playerHealth){
+	function fifthObstacle(playerHealth){
 		alert("You approach the fifth obstacle which seems to be a booby trapped pathway! Roll a 7 sided die to determine your fate! HP = " + playerHealth);
 		let roll5 = randomWholeNum(7);
 			if (roll5 == 1) {
@@ -175,7 +178,7 @@
 			return playerHealth;
 	}
 
-	function sixthObstacle(userName, playerHealth){
+	function sixthObstacle(playerHealth){
 		alert("WOAH! You have made it to the final obstacle!!! Good Luck it is the hardest one yet it's a DRAGON!!! HP = " + playerHealth);
 		let roll6 = randomWholeNum(8);
 			if (roll6 == 1) {
